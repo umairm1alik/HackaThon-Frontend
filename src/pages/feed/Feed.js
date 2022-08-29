@@ -12,8 +12,6 @@ function Feed() {
     dispatch(getHouse())
   }, [])
   const data = useSelector(store => store.HouseReducer.houseData)
-  // console.log("data in new feed", data.houses);
-
   return (
     <div>
       <Header />
