@@ -7,7 +7,7 @@ export const authStyle = {
         alignItems: "center",
         height: "90vh",
         overflow: "auto",
-        marginTop: 10
+        marginTop: 10,
 
     },
     formContainer: {
