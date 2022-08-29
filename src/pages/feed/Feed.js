@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getHouse } from '../../store/houseSlice/houseSlice'
 import Breadcrumb from '../../commonComponents/breadcrumb/Breadcrumb'
 import Card from '../../commonComponents/cards/Card'
-import Header from '../../commonComponents/header/Header'
 
 
 function Feed() {
@@ -14,7 +13,6 @@ function Feed() {
   const data = useSelector(store => store.HouseReducer.houseData)
   return (
     <div>
-      <Header />
       <Breadcrumb title="Feed" />
       <h1 className='text-center mt-5 fw-bold'>New & Top Rated Property </h1>
       <Card data={data} />

@@ -12,11 +12,26 @@ const postHouse = (headline, description, location) => {
 }
 
 const fetchHouses = () => {
-    return axios.get(API_URL + "/getHouse")
+    return axios.get(API_URL + "getHouse")
 }
+
+const postFavProperty = (headline, description, location) => {
+    return axios.post(API_URL + "addFavProperty", {
+        headline,
+        description,
+        location
+    });
+}
+
+const fetchFavProperty = () => {
+    return axios.get(API_URL + "getFavProperty")
+}
+
 const HouseService = {
     postHouse,
-    fetchHouses
+    fetchHouses,
+    postFavProperty,
+    fetchFavProperty
 }
 
 export default HouseService

@@ -9,6 +9,7 @@ import PublicNavigation from "./PublicNavigation";
 import Home from "../pages/home/Home";
 import Feed from "../pages/feed/Feed";
 import Post from "../pages/post/Post";
+import FavProperty from "../pages/favProperty/FavProperty";
 
 export default function Navigation() {
   const isLoginUser = useSelector((store) => store.AuthReducer.isLoginUser)
@@ -23,6 +24,11 @@ export default function Navigation() {
         <Route path="/feed" element={
           <PrivateNavigation isLoginUser={isLoginUser}>
             <Feed />
+          </PrivateNavigation>
+        } />
+        <Route path="/favProperty" element={
+          <PrivateNavigation isLoginUser={isLoginUser}>
+            <FavProperty />
           </PrivateNavigation>
         } />
         <Route path="/post" element={

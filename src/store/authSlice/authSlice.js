@@ -36,10 +36,10 @@ export const loggedInUser = createAsyncThunk("auth/loggedInUser", async () => {
     const response = await AuthService.fetchLoggedInUser();
     console.log(response);
 });
-export const logout = createAsyncThunk("auth/logout", async () => {
-    const response = await AuthService.logout();
-    return response
-});
+// export const logout = createAsyncThunk("auth/logout", async () => {
+//     const response = await AuthService.logout();
+//     return response
+// });
 const initialState = {
     loading: false,
     user: {}, // for user object
@@ -52,6 +52,11 @@ const initialState = {
 const authSlice = createSlice({
     name: "auth",
     initialState,
+    reducers: {
+        logout(state) {
+            state.isLoginUser = false
+        }
+    },
     extraReducers: {
         [register.fulfilled]: (state, action) => {
             state.isLoginUser = false;
@@ -68,10 +73,9 @@ const authSlice = createSlice({
             state.isLoginUser = false;
             state.user = null;
         },
-        [logout.fulfilled]: (state, action) => {
-            state.isLoginUser = false
-        },
     }
 })
+
+export const { logout } = authSlice.actions
 
 export default authSlice.reducer

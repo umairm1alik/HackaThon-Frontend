@@ -1,13 +1,11 @@
 import React from 'react'
 import Breadcrumb from '../../commonComponents/breadcrumb/Breadcrumb'
-import Header from '../../commonComponents/header/Header'
 import usePost from './usePost'
 
 function Post() {
   const { addHouseHandler, handleChange, state } = usePost()
   return (
     <div>
-      <Header />
       <Breadcrumb title="Post" />
       <div className='container mt-5'>
         <form className="form-horizontal">
