@@ -3,7 +3,7 @@ import HouseService from "../../authServices/HouseService";
 
 
 export const postHouse = createAsyncThunk(
-    "houe/post",
+    "house/post",
     async (newHouse) => {
         try {
             const response = await HouseService.postHouse(newHouse.headline, newHouse.description, newHouse.location);
@@ -17,7 +17,7 @@ export const postHouse = createAsyncThunk(
 );
 
 export const getHouse = createAsyncThunk(
-    "houe/get",
+    "house/get",
     async () => {
         try {
             const response = await HouseService.fetchHouses();
@@ -28,18 +28,46 @@ export const getHouse = createAsyncThunk(
         }
     }
 );
+export const addFavProperty = createAsyncThunk(
+    "house/fav",
+    async (favProperty) => {
+        try {
+            const response = await HouseService.postFavProperty(favProperty.headline, favProperty.description, favProperty.location);
+            alert(response.data.message)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+);
+export const getFavProperty = createAsyncThunk(
+    "house/getFavProperty",
+    async () => {
+        try {
+            const response = await HouseService.fetchFavProperty();
+            console.log(response.data);
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+);
 
 const initialState = {
-    houseData: {}
+    houseData: {},
+    favHouseData: {}
 }
 
 const houseSlice = createSlice({
-    name: "auth",
+    name: "house",
     initialState,
     extraReducers: {
         [getHouse.fulfilled]: (state, action) => {
             state.houseData = action.payload;
         },
+        [getFavProperty.fulfilled]: (state, action) => {
+            state.favHouseData = action.payload;
+        },
+
 
     }
 })
