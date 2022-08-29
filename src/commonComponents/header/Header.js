@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import "./header.css"
 import logo from "../../images/real-estate-logo.jpg"
 import CommonButton from '../commonButton/CommonButton'
 import { logout } from '../../store/authSlice/authSlice'
@@ -11,9 +10,9 @@ function Header() {
     dispatch(logout())
   }
   return (
-    <div className='container-fluid'>
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <a className="navbar-brand" href="#"><img src={logo} className="img-fluid header-logo" /></a>
+    <div className='container-fluid '>
+      <nav className="navbar navbar-expand-lg navbar-light ">
+        <a className="navbar-brand" href="#"><img src={logo} width="50" className="img-fluid" /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
